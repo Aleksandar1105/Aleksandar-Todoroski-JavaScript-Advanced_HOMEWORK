@@ -1,2 +1,2 @@
-# Aleksandar-Todoroski-JavaScript-Advanced_HOMEWORK
+# JavaScript Advanced Homework
 
