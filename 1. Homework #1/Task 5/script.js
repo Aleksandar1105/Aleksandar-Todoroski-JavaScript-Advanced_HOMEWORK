@@ -1,0 +1,1 @@
+// Delete all elements of the array except the numbers
