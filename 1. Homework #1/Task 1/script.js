@@ -12,12 +12,9 @@ function sumOfNumbers(num) {
 }
 
 inputNumber.addEventListener('keypress', function (event) {
-
   if (event.key === 'Enter') {
     let numberFromInput = inputNumber.value;
-
     resultText.innerHTML = `The result is ${sumOfNumbers(numberFromInput)}`;
-
     console.log(sumOfNumbers(numberFromInput));
   }
 })
