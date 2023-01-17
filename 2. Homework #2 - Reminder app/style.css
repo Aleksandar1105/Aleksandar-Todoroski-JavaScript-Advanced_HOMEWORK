@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+h1 {
+  margin: 10px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+#title,
+#priority {
+  text-align: center;
+  width: 300px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 6px;
+}
+
+#color {
+  width: 100px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 6px;
+}
+
+#description {
+  padding: 10px;
+  width: 300px;
+  height: 80px;
+  border: 1px solid black;
+  border-radius: 6px;
+}
+
+.reminder-app {
+  background-color: rgba(39, 128, 201, 0.836);
+  border: 1px solid black;
+  border-radius: 6px;
+  box-shadow: 0 10px 10px -5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  margin: 30px auto;
+}
+
+#table {
+  margin: 30px;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+th {
+  min-width: 150px;
+  height: 30px;
+  text-align: center;
+}
+
+td {
+  min-width: 150px;
+  height: 30px;
+  text-align: center;
+}
+
+button {
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+  margin: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  border: 1px solid black;
+  border-radius: 6px;
+  background-color: burlywood;
+}
