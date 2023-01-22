@@ -96,5 +96,9 @@ function showReminder(remindersArray) {
 btnShowReminder.addEventListener('click', function (event) {
   event.preventDefault();
 
-  showReminder(reminders);
+  if (reminders.length === 0) {
+    return;
+  } else {
+    showReminder(reminders)
+  }
 });
