@@ -20,10 +20,19 @@ $(document).ready(function () {
         console.log(response);
         personName.innerText = response.name;
         personStats.innerHTML = `
-        <tr><td>Height: ${response.height}</td></tr>
-        <tr><td>Weight: ${response.mass}</td></tr>
-        <tr><td>Eye color: ${response.eye_color}</td></tr>
-        <tr><td>Hair color: ${response.hair_color}</td></tr>`;
+        <tr>
+        <th scope="row">Height:</th>
+        <th scope="row">Weight:</th>
+        <th scope="row">Eye color:</th>
+        <th scope="row">Hair color:</th>
+        </tr>
+        <tr>
+        <td>${response.height}</td>
+        <td>${response.mass}</td>
+        <td>${response.eye_color}</td>
+        <td>${response.hair_color}</td>
+        </tr>`;
+        $("table, th, td").css({ 'border': '1px solid black', 'border-collapse': 'collapse', 'text-align': 'center', 'min-width': '100px' });
       },
       error: function (error) {
         console.log(error);
