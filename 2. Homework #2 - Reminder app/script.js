@@ -70,7 +70,7 @@ function showReminder(remindersArray) {
     <tr>
       <th>Title</th>
       <th>Priority</th>
-     <th>Description</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody id="tableBody"></tbody>
