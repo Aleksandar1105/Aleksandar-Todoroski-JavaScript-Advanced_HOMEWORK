@@ -66,16 +66,14 @@ function showReminder(remindersArray) {
   result.innerHTML = `<table id="table" border="1px solid"></table>`;
   let table = document.querySelector('#table');
   table.innerHTML = `
-  <thead id="tableHead"></thead>
+  <thead id="tableHead">
+    <tr>
+      <th>Title</th>
+      <th>Priority</th>
+     <th>Description</th>
+    </tr>
+  </thead>
   <tbody id="tableBody"></tbody>
-  `;
-  let tableHead = document.querySelector('#tableHead');
-  tableHead.innerHTML = `
-  <tr>
-    <th>Title</th>
-    <th>Priority</th>
-    <th>Description</th>
-  </tr>
   `;
   let tableBody = document.querySelector('#tableBody');
 
