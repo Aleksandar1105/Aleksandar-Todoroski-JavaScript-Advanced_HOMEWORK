@@ -1,0 +1,66 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --font-display: "Noto Sans", sans-serif;
+  --color-black: #000000;
+}
+
+html {
+  font-family: var(--font-display);
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 3rem;
+  text-align: center;
+}
+
+table {
+  font-size: 1.6rem;
+  border: 1px solid var(--color-black);
+  border-collapse: collapse;
+  margin: 1rem 2rem;
+}
+
+th {
+  font-weight: 700;
+  border: 1px solid var(--color-black);
+  min-width: 20rem;
+  height: 3rem;
+}
+
+td {
+  font-weight: 300;
+  border: 1px solid var(--color-black);
+  width: 20rem;
+  height: 2.4rem;
+  text-align: center;
+}
+
+#show-planets {
+  margin: 2rem;
+  padding: 1rem 2rem;
+}
+
+#next-ten,
+#previous-ten {
+  padding: 1rem 2rem;
+}
