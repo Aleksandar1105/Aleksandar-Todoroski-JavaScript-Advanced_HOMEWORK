@@ -40,9 +40,10 @@ btnShowFirstTenPlanets.addEventListener('click', async function (e) {
   await printFirstTenPlanets();
   table.style.visibility = 'visible';
   btnShowFirstTenPlanets.style.visibility = 'hidden';
-  buttonsContainers.innerHTML = `  
+  buttonsContainers.innerHTML = ` 
+  <button id="previous-ten">PREVIOUS 10</button>
   <button id="next-ten">NEXT 10</button>
-  <button id="previous-ten">PREVIOUS 10</button>`;
+  `;
 
   const btnShowNextTenPlanets = document.querySelector('#next-ten');
   const btnShowPreviousTenPlanets = document.querySelector('#previous-ten');
