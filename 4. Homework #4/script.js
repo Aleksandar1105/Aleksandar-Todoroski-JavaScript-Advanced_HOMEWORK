@@ -1,10 +1,27 @@
-// TASK 1
+/* # Homework 1
+## Task 1
+Create an html page with a table and a button. When the button is clicked show results for the first 10 planets from the Star Wars api. The information in the table are:
+* Planet Name
+* Population
+* Climate
+* Gravity
+
+There should be a function that makes the call to the api for the planets ( should have URL for a parameter )
+There should be a function that prints planets in to the table
+**API URL: ** https://swapi.dev/api/planets/?page=1
+
+## Task 2
+After the user clicks the button to get the first 10 planets, a button should be shown below the table that says: NEXT 10. When the button is clicked you should make another call and get the next 10 planets and change the table contents with information about the next 10 planets. After the next 10 planets are shown the button NEXT 10 should disapear and a new button PREVIOUS 10 should appear. The previous button should return the first 10 planets in the table and hide the PREVIOUS 10 button and show the NEXT 10 button.
+
+**API URL: ** https://swapi.dev/api/planets/?page=2 */
+
 const btnShowFirstTenPlanets = document.querySelector('#show-planets');
 const tableBody = document.querySelector('#table-body');
 const buttonsContainers = document.querySelector('#next-previous-buttons');
 const table = document.querySelector('table');
 table.style.visibility = 'hidden';
 const page1_URL = 'https://swapi.dev/api/planets/?page=1';
+const page2_URL = 'https://swapi.dev/api/planets/?page=2';
 
 // fetching data from API
 async function fetchPlanetsFromApi(URL) {
@@ -14,8 +31,8 @@ async function fetchPlanetsFromApi(URL) {
 };
 
 // creating table for first 10 planets
-async function printFirstTenPlanets() {
-  const data = await fetchPlanetsFromApi(page1_URL);
+async function printPlanets(URL) {
+  const data = await fetchPlanetsFromApi(URL);
   console.log(data);
   const planets = data.results;
   console.log(planets);
@@ -31,60 +48,34 @@ async function printFirstTenPlanets() {
   }
 };
 
-// TASK 2
-const page2_URL = 'https://swapi.dev/api/planets/?page=2';
-
-// showing first 10 planets
-btnShowFirstTenPlanets.addEventListener('click', async function (e) {
+btnShowFirstTenPlanets.addEventListener('click', async function (e) {// showing first 10 planets
   e.preventDefault();
-  await printFirstTenPlanets();
+  await printPlanets(page1_URL);
   table.style.visibility = 'visible';
   btnShowFirstTenPlanets.style.visibility = 'hidden';
   buttonsContainers.innerHTML = ` 
   <button id="previous-ten">PREVIOUS 10</button>
   <button id="next-ten">NEXT 10</button>
   `;
-
   const btnShowNextTenPlanets = document.querySelector('#next-ten');
   const btnShowPreviousTenPlanets = document.querySelector('#previous-ten');
-
   btnShowPreviousTenPlanets.style.visibility = 'hidden';
 
-  // showing next 10 planets
-  btnShowNextTenPlanets.addEventListener('click', async function (e) {
+  btnShowNextTenPlanets.addEventListener('click', async function (e) {// showing next 10 planets
     e.preventDefault();
     tableBody.innerHTML = '';
-    await printNextTenPlanets();
+    await printPlanets(page2_URL);
     btnShowFirstTenPlanets.style.visibility = 'hidden';
     btnShowPreviousTenPlanets.style.visibility = 'visible';
     btnShowNextTenPlanets.style.visibility = 'hidden';
   });
 
-  // showing previous 10 planets
-  btnShowPreviousTenPlanets.addEventListener('click', async function (e) {
+  btnShowPreviousTenPlanets.addEventListener('click', async function (e) {// showing previous 10 planets
     e.preventDefault();
     tableBody.innerHTML = '';
-    await printFirstTenPlanets();
+    await printPlanets(page1_URL);
     btnShowFirstTenPlanets.style.visibility = 'hidden';
     btnShowNextTenPlanets.style.visibility = 'visible';
     btnShowPreviousTenPlanets.style.visibility = 'hidden';
   });
 });
-
-// creating table for next 10 planets
-async function printNextTenPlanets() {
-  const data = await fetchPlanetsFromApi(page2_URL);
-  console.log(data);
-  const planets = data.results;
-  console.log(planets);
-  for (const planet of planets) {
-    tableBody.innerHTML += `
-    <tr>
-        <td>${planet.name}</td>
-        <td>${planet.population}</td>
-        <td>${planet.climate}</td>
-        <td>${planet.gravity}</td>
-      </tr>
-    `
-  }
-};
