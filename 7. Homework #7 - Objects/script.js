@@ -1,7 +1,6 @@
 'use strict';
 
 ///////////////// ACADEMY TEMPLATE /////////////////
-
 function Academy(name, students, subjects, start, end) {
   this.academyName = name;
   this.students = students || [];
@@ -23,12 +22,11 @@ function Academy(name, students, subjects, start, end) {
   }
 }
 
-// ACADEMIES
-const sedcAcademy = new Academy('SEDC', ['Aleksandar', 'Dragica', 'Lina'], ['HTML', 'CSS', 'JS Basic', 'JS Advanced'], '17.10.2022', '18.10.2023');
-const codeAcademy = new Academy('CodeAcademy', ['Milan', 'Jovica', 'Katarina'], ['PHP', 'Angular', 'React', 'NodeJS'], '08.09.2022', '22.11.2023');
+// Academies objects examples
+const sedcAcademy = new Academy('SEDC', ['Marko', 'Emilija', 'Nikola'], ['HTML', 'CSS', 'JS Basic', 'JS Advanced'], '17.10.2022', '18.10.2023');
+const codeAcademy = new Academy('CodeAcademy', ['Milan', 'Jovan', 'Kate'], ['PHP', 'Angular', 'React', 'NodeJS'], '08.09.2022', '22.11.2023');
 
 ///////////////// SUBJECT TEMPLATE /////////////////
-
 function Subject(title, isElective, academy, students) {
   this.title = title;
   this.numberOfClasses = 10;
@@ -41,7 +39,7 @@ function Subject(title, isElective, academy, students) {
   }
 }
 
-// SUBJECTS 
+// Subjects objects examples
 const javascriptSubject = new Subject('JS Advanced', false, sedcAcademy, sedcAcademy.students);
 const htmlSubject = new Subject('HTML', true, sedcAcademy, sedcAcademy.students);
 const csslSubject = new Subject('CSS', true, sedcAcademy, sedcAcademy.students);
@@ -80,11 +78,12 @@ function Student(firstName, lastName, age) {
   };
 }
 
-// STUDENTS
-const aleksandarTodoroski = new Student('Aleksandar', 'Todoroski', 38);
-const dragicaTodoroska = new Student('Dragica', 'Todoroska', 35);
-const natasaBozinovska = new Student('Natasa', 'Bozinovska', 35);
-const kristijanBozinovski = new Student('Kristijan', 'Bozinovski', 10);
+// Students objects examples
+// const aleksandarTodoroski = new Student('Aleksandar', 'Todoroski', 38);
+// const dragicaTodoroska = new Student('Dragica', 'Todoroska', 35);
+// const natasaBozinovska = new Student('Natasa', 'Bozinovska', 35);
+// const kristijanBozinovski = new Student('Kristijan', 'Bozinovski', 10);
+
 
 // console.log('SEDC students:', sedcAcademy.students);
 // console.log('CodeAcademy students:', codeAcademy.students);
@@ -97,9 +96,9 @@ const kristijanBozinovski = new Student('Kristijan', 'Bozinovski', 10);
 
 // console.log('Students of JavaScript subject are:', javascriptSubject.students);
 // aleksandarTodoroski.startSubject(javascriptSubject, sedcAcademy);
-// console.log('The current subject is', aleksandarTodoroski.currentSubject);
+// console.log(`The current subject is ${aleksandarTodoroski.currentSubject.title}`, aleksandarTodoroski.currentSubject);
 // aleksandarTodoroski.startSubject(htmlSubject, sedcAcademy);
-// console.log('The current subject is', aleksandarTodoroski.currentSubject);
+// console.log(`The current subject is ${aleksandarTodoroski.currentSubject.title}`, aleksandarTodoroski.currentSubject);
 // aleksandarTodoroski.startSubject(csslSubject, sedcAcademy);
 // console.log('The current subject is', aleksandarTodoroski.currentSubject);
 // console.log('Completed subjects are:', aleksandarTodoroski.completedSubjects);
