@@ -9,15 +9,18 @@ function Academy(name, students, subjects, start, end) {
   this.end = end;
   this.numberOfClasses = subjects.length * 10;
   this.printStudents = function () {
-    console.log('--- students ---');
-    students.forEach(student => {
-      console.log(student);
+    if (!this.students) {
+      console.log(`There are not students in the ${this.academyName} academy!`);
+    }
+    console.log(`Students in ${this.academyName} are:`);
+    this.students.forEach(student => {
+      console.log(`${student.firstName} ${student.lastName} age ${student.age}`);
     });
   };
   this.printSubjects = function () {
-    console.log('--- subjects ---');
-    subjects.forEach(subject => {
-      console.log(subject);
+    console.log(`Subjects in ${this.academyName} academy are:`);
+    this.subjects.forEach(subject => {
+      console.log(subject.title);
     });
   }
 }
@@ -32,7 +35,7 @@ function Subject(title, isElective, academy, students) {
   this.numberOfClasses = 10;
   this.isElective = Boolean(isElective);
   this.academy = academy;
-  this.students = students;
+  this.students = students || [];
   this.overrideClasses = function (number) {
     if (number >= 3) return `The number of classes is: ${this.numberOfClasses = number}`;
     else return `Number of classes can't be smaller than 3. You have ${number} classes.`
@@ -57,7 +60,7 @@ function Student(firstName, lastName, age) {
   // When the student calls StartAcademy, the student should also be added to the Academy property Students ( The academy that he is starting )
   this.startAcademy = function (academy) {
     this.academy = academy;
-    academy.students.push(this.firstName);
+    this.academy.students.push(this.firstName);
 
   };
   // When the student calls StartSubject the student should also be added to the Subject property Students ( The subject that he is starting ). If there was another subject in the CurrentSubject property, that subject should be transferred to CompletedSubjects and then add the new Subject
@@ -78,26 +81,29 @@ function Student(firstName, lastName, age) {
   };
 }
 
+
 // Students objects examples
-// const aleksandarTodoroski = new Student('Aleksandar', 'Todoroski', 38);
-// const dragicaTodoroska = new Student('Dragica', 'Todoroska', 35);
-// const natasaBozinovska = new Student('Natasa', 'Bozinovska', 35);
-// const kristijanBozinovski = new Student('Kristijan', 'Bozinovski', 10);
+const aleksandarTodoroski = new Student('Aleksandar', 'Todoroski', 38);
+const dragicaTodoroska = new Student('Dragica', 'Todoroska', 35);
+const natasaBozinovska = new Student('Natasa', 'Bozinovska', 35);
+const kristijanBozinovski = new Student('Kristijan', 'Bozinovski', 10);
 
 
-// console.log('SEDC students:', sedcAcademy.students);
-// console.log('CodeAcademy students:', codeAcademy.students);
+console.log('SEDC students:', sedcAcademy.students);
+console.log('CodeAcademy students:', codeAcademy.students);
 // aleksandarTodoroski.startAcademy(sedcAcademy);
 // natasaBozinovska.startAcademy(codeAcademy);
-// dragicaTodoroska.startAcademy(codeAcademy);
+// dragicaTodoroska.startAcademy(sedcAcademy);
 // kristijanBozinovski.startAcademy(codeAcademy);
-// console.log('SEDC students:', sedcAcademy.students);
-// console.log('CodeAcademy students:', codeAcademy.students);
+console.log('SEDC students:', sedcAcademy.students);
+console.log('CodeAcademy students:', codeAcademy.students);
 
-// console.log('Students of JavaScript subject are:', javascriptSubject.students);
-// aleksandarTodoroski.startSubject(javascriptSubject, sedcAcademy);
+console.log('Students of JavaScript subject are:', javascriptSubject.students);
+aleksandarTodoroski.startSubject(javascriptSubject, sedcAcademy);
+console.log('Students of JavaScript subject are:', javascriptSubject.students);
 // console.log(`The current subject is ${aleksandarTodoroski.currentSubject.title}`, aleksandarTodoroski.currentSubject);
-// aleksandarTodoroski.startSubject(htmlSubject, sedcAcademy);
+aleksandarTodoroski.startSubject(htmlSubject, sedcAcademy);
+console.log('Students of JavaScript subject are:', javascriptSubject.students);
 // console.log(`The current subject is ${aleksandarTodoroski.currentSubject.title}`, aleksandarTodoroski.currentSubject);
 // aleksandarTodoroski.startSubject(csslSubject, sedcAcademy);
 // console.log('The current subject is', aleksandarTodoroski.currentSubject);
