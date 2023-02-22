@@ -15,14 +15,17 @@ class Academy {
       console.log(`${this.name} doesn't have any students yet!`);
       return;
     }
-    this.students.forEach((student, index) => {
-      console.log(`${index + 1}. ${student.firstName} ${student.lastName} ${student.age}`);
-    })
+
+    console.log(`${this.name} students:`, this.students)
+    // this.students.forEach((student) => {
+    //   // console.log(`${index + 1}. ${student.firstName} ${student.lastName} ${student.age}`);
+    //   console.log(`${this.name} students:`, student.academy.students);
+    //   // this.students.push(student)
+    // })
   }
 
   printSubjects() {
     console.log(this.subjects)
-    // subjects.push(subject);
     this.subjects.forEach(subject => {
       console.log(subject);
     });
@@ -66,6 +69,7 @@ class Student {
     }
     this.academy = academy;
     academy.students.push(this);
+    console.log(`${this.firstName} ${this.lastName} started the ${academy.name} academy.`)
   }
 
   // When the student calls StartSubject the student should also be added to the Subject property Students ( The subject that he is starting ). If there was another subject in the CurrentSubject property, that subject should be transferred to CompletedSubjects and then add the new Subject
@@ -75,29 +79,17 @@ class Student {
       console.log('You entered invalid subject!');
       return;
     }
-    //the student should also be added to the Subject property Students ( The subject that he is starting )
+
     subject.students.push(this)
 
-    //If there was another subject in the CurrentSubject property, that subject should be transferred to CompletedSubjects and then add the new Subject
-    // console.log('kkkkkkkk')
-    console.log(!this.currentSubject !== null)
     if (this.currentSubject !== null) {
-      // console.log('rrrrrr')
       this.completedSubjects.push(this.currentSubject);
-      // console.log(this.completedSubjects)
-
-
-      // console.log(subject)
-      // console.log(subject.students)
-      // console.log(this.completedSubjects.push(this.currentSubject));
-      // console.log(this.completedSubjects);
-      // console.log(this.currentSubject);
+      this.currentSubject = subject;
     } else {
       if (this.currentSubject) {
         console.log(`You have not started with learning yet!`)
       } else {
         this.currentSubject = subject;
-        // console.log(`You have started learning the subject ${subject.title}`)
       }
     }
   }
@@ -118,22 +110,22 @@ const student3 = new Student('Lina', 'Todoroska', 6);
 
 // start academy
 student1.startAcademy(sedcAcademy);
-// student2.startAcademy(sedcAcademy);
-// student3.startAcademy(codeAcademy);
-// student1.startAcademy(codeAcademy);
+student2.startAcademy(sedcAcademy);
+student3.startAcademy(codeAcademy);
+student1.startAcademy(codeAcademy);
 
 // start subject
 student1.startSubject(htmlSubject);
-// student1.startSubject(csslSubject);
-// student1.startSubject(javascriptSubject);
+student1.startSubject(csslSubject);
+student1.startSubject(javascriptSubject);
 // student2.startSubject(javascriptSubject);
 
-// sedcAcademy.printStudents();
-// sedcAcademy.printSubjects();
-// codeAcademy.printStudents();
+sedcAcademy.printStudents();
+codeAcademy.printStudents();
+sedcAcademy.printSubjects();
 
 // console.log('JavaScript Students:', javascriptSubject.students);
-// console.log('HTML Students:', htmlSubject.students);
+console.log('HTML Students:', htmlSubject.students);
 
 // codeAcademy.printStudents();
 
